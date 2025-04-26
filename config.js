@@ -18,10 +18,12 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: Number(process.env.DB_PORT),
-    ssl: false,
     max: 10,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 5000,
+    ssl: {  // Add SSL configuration for Render.com
+        rejectUnauthorized: false
+    }
 });
 
 // Solo para desarrollo: prueba de conexión
